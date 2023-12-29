@@ -5,16 +5,13 @@ export class UsersManager {
         this.model = userModel;
     }
 
-    async createUser(userBody) {
+    async createUser(reqBody) {
         try {
-            const newUser = await this.model.create(userBody);
+           const newUser = await this.model.create(reqBody);
             return newUser;
         } catch (error) {
-            throw new Error('No se pudo crear el usuario <<<',error.message);
+            throw new Error('No se pudo crear el usuario <<<' + error);
         }
     }
 
-    async getUsers() {
-
-    }
 }

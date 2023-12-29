@@ -1,3 +1,4 @@
+
 export class UsersRepository {
 
     constructor(dao) {
@@ -5,6 +6,7 @@ export class UsersRepository {
     }
 
     async createUser(userBody) {
+        
         return await this.dao.createUser(userBody)
     }
 }

@@ -1,15 +1,19 @@
 
-
+import { usersDaoService } from "../service/repositories/index.js";
 export class UsersController {
     static registerUser = async (req, res) => {
         try {
-            res.json("register")
-            // if(req.body) {
-            //     const newUser = await UsersManager.createUser(req.body);
-            //     res.status(201).json({message: 'Usuario creado', newUser});
-            // }else{
-            //     res.status(400).json({message: 'No se pudo crear el usuario'});
-            // }
+            
+            const newUser = req.body;
+            console.log("body", newUser);
+           
+            if(newUser){
+                const result = await usersDaoService.createUser(newUser);
+                console.log('Registrando usuario');
+                res.status(201).json({message: 'Usuario creado', result});
+            }else{
+                res.status(400).json({message: 'No se pudo crear el usuario'});
+            }
         } catch (error) {
             res.status(500).json({message: error.message});
         }
