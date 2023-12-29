@@ -27,3 +27,4 @@ switch(environment){
 
 }
 
+export { sessionDao }

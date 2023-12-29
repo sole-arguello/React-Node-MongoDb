@@ -1,7 +1,7 @@
 import { UsersRepository } from "./users.repositoty.js";
 
 
-import { sessionDao } from "../dao/factory.js";
+import { sessionDao } from "../../dao/factory.js";
 
 
-export const usersDaoService = new UsersManager(sessionDao);
+export const usersDaoService = new UsersRepository(sessionDao);
