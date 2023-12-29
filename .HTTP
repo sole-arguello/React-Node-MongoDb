@@ -1,0 +1,19 @@
+GET http://localhost:8080
+
+### Registro
+POST http://localhost:8080/api/sessions/register
+
+{
+    "first_name": "Maria",
+    "last_name": "Perez",
+    "age": 20 ,
+    "email": "maria@gmail.com",
+    "password": "123456",
+}
+### login
+POST http://localhost:8080/api/sessions/login
+
+{
+    "email": "maria@gmail.com",
+    "password": "123456"
+}
