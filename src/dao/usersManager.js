@@ -1,4 +1,5 @@
 import { userModel } from "./models/user.model.js";
+import { UserDto } from "../dtos/user.dto.js";
 
 export class UsersManager {
     constructor() {
@@ -7,8 +8,10 @@ export class UsersManager {
 
     async createUser(reqBody) {
         try {
-           const newUser = await this.model.create(reqBody);
-            return newUser;
+
+            const newUser = new UserDto(reqBody);
+            const result = await this.model.create(newUser);
+            return result;
         } catch (error) {
             throw new Error('No se pudo crear el usuario <<<' + error);
         }
