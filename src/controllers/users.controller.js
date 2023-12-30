@@ -12,7 +12,7 @@ export class UsersController {
             if(newUser){
                 CustomError.createError({
                     name: "Error al registrar el usuario",
-                    message: "Campos obligatorios, no pueden estar vacios",
+                    message: "Campos obligatorios",
                     cause: errorCreateUser(newUser),
                     code: EErrors.INVALID_TYPES_ERROR
                 })
