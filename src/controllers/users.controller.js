@@ -10,12 +10,12 @@ export class UsersController {
             const newUser = req.body;
             //console.log("body", newUser);
             if(newUser){
-                CustomError.createError({
-                    name: "Error al registrar el usuario",
-                    message: "Campos obligatorios",
-                    cause: errorCreateUser(newUser),
-                    code: EErrors.INVALID_TYPES_ERROR
-                })
+                // CustomError.createError({
+                //     name: "Error al registrar el usuario",
+                //     message: "Campos obligatorios",
+                //     cause: errorCreateUser(newUser),
+                //     code: EErrors.INVALID_TYPES_ERROR
+                // })
                 const result = await usersDaoService.createUser(newUser);
                 console.log('Registrando usuario');
                 res.status(201).json({message: 'Usuario creado', result});

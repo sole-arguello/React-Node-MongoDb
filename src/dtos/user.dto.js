@@ -10,13 +10,16 @@ export class UserDto {
         password,
         email
     }) {
-        
-        // CustomError.createError({
-        //     name: "Error al registrar el usuario",
-        //     message: "Campos obligatorios",
-        //     cause: errorCreateUser(newUser),
-        //     code: EErrors.INVALID_TYPES_ERROR
-        // })
+        const errors = errorCreateUser({first_name, last_name, age, password, email})
+        if(errors.length > 0){
+            CustomError.createError({
+                name: "Error al registrar el usuario",
+                message: "Campos obligatorios",
+                cause: errors,
+                code: EErrors.INVALID_TYPES_ERROR
+            })
+        }
+
 
         this.full_name = `${first_name} ${last_name}`.toUpperCase()
         this.first_name = first_name

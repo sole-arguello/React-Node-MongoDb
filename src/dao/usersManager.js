@@ -13,7 +13,7 @@ export class UsersManager {
             const result = await this.model.create(newUser);
             return result;
         } catch (error) {
-            throw new Error('No se pudo crear el usuario <<<' + error);
+            throw new Error('>>> Error al crear el usuario <<<' + error);
         }
     }
 
