@@ -9,8 +9,8 @@ export class UsersManager {
     async createUser(reqBody) {
         try {
 
-            const newUser = new UserDto(reqBody);
-            const result = await this.model.create(newUser);
+            //const newUser = new UserDto(reqBody);
+            const result = await this.model.create(reqBody);
             return result;
         } catch (error) {
             throw new Error('>>> Error al crear el usuario <<<' + error);

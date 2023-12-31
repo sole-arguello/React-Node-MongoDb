@@ -5,7 +5,7 @@ POST http://localhost:8080/api/sessions/register
 Content-Type: application/json
 
 {
-    "first_name": "Maria",
+    "first_name": "",
     "last_name": "Perez",
     "age":  ,
     "email": "maria@gmail.com",
