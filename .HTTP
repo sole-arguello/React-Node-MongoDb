@@ -5,10 +5,10 @@ POST http://localhost:8080/api/sessions/register
 Content-Type: application/json
 
 {
-    "first_name": "",
+    "first_name": "Mar",
     "last_name": "Perez",
-    "age":  ,
-    "email": "maria@gmail.com",
+    "age":  20,
+    "email": "marco@gmail.com",
     "password": "123456"
 }
 ### POST
