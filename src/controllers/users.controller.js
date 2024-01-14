@@ -1,21 +1,23 @@
 import { UserDto } from "../dtos/user.dto.js";
 import { usersDaoService } from "../service/repositories/index.js";
+import { validateSchema } from './../helpers/validate.helper.js';
+import { registerSchema } from './../schemas/user/register.schema.js';
 export class UsersController {
-    static registerUser = async (req, res) => {
+    static registerUser = async (req, res, next) => {
         try {
-            
-            const newUser = req.body;
+            const newUser = await validateSchema(registerSchema, req.body);
             const userDto = new UserDto(newUser);
-            //res.status(201).json({message: 'Usuario creado', result: {...newUser} });
             if(userDto){
                 const result = await usersDaoService.createUser(userDto);
                 console.log('Registrando usuario');
                 res.status(201).json({message: 'Usuario creado', result: {...newUser}});
             }else{
+                console.error('No se pudo crear el usuario');
                 res.status(400).json({message: 'No se pudo crear el usuario'});
             }
         } catch (error) {
-            res.status(500).json({message: error.message, error: error.cause});
+            //res.status(500).json({message: error.message, error: error.cause});
+            next(error);
         }
     }
 

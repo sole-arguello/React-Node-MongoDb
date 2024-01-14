@@ -28,5 +28,3 @@ export const registerSchema = joi.object({
         .pattern(/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[¡!$%^&*()_+|~=`{}:";'<>¿?,.])[a-zA-Z0-9¡!$%^&*()_+|~=`{}:";'<>¿?,.].{8,}$/)
         .message(JoiMsgError.errorMsgPassword)
 })
-
-//simbolo barra invertida 
