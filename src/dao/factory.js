@@ -18,7 +18,7 @@ switch(environment){
 
         console.log('Estoy en el entorno de produccion');
 
-        const { UsersManager } = await import('../dao/usersManager.js');
+        const { UsersManager } = await import('../dao/managers/usersManager.js');
 
         sessionDao = new UsersManager();
         

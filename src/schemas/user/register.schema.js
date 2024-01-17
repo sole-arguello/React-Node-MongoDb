@@ -7,24 +7,27 @@ export const registerSchema = joi.object({
         .min(3)
         .max(30)
         .required()
-        .pattern(/^\S*$/)
-        .message({ ...JoiMsgError.errorMessage, ...JoiMsgError.errorMsgUser }),
+        .pattern(/^[a-zA-Z\s]+$/)
+        .messages({ ...JoiMsgError.errorMessage, ...JoiMsgError.errorMsgUser }),
     last_name: joi.
         string().
-        optional(),
+        optional()
+        .pattern(/^\S*$/)
+        .messages({ ...JoiMsgError.errorMessage, ...JoiMsgError.errorMsgUser }),
     age: joi
         .number()
         .integer()
-        .max(2)
-        .optional(),
+        .max(20)
+        .optional()
+        .messages(JoiMsgError.errorMessage),
     email: joi
         .string()
         .email()
         .required()
-        .message(JoiMsgError.errorMessage),
+        .messages(JoiMsgError.errorMessage),
     password: joi
         .string()
         .required()
         .pattern(/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[¡!$%^&*()_+|~=`{}:";'<>¿?,.])[a-zA-Z0-9¡!$%^&*()_+|~=`{}:";'<>¿?,.].{8,}$/)
-        .message(JoiMsgError.errorMsgPassword)
+        .messages({...JoiMsgError.errorMsgPassword, ...JoiMsgError.errorMessage})
 })
